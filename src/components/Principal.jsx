@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ReportTable from "./Report/ReportTable";
 import { Button } from "@material-ui/core";
-import exponentialDistribution from "./Distributions/utils";
+import {
+  exponentialDistribution,
+  uniformDistribution,
+  truncateValue,
+} from "./Distributions/utils";
+import { initialData, filterItems } from "../utils/utils";
 
 export default function Principal({}) {
   const [nroCabina, setNroCabina] = useState(1);
-  const items = [
-    { id: 1, nombre: "gustavo" },
-    { id: 2, nombre: "Peralta" },
-  ];
+  const [vectores, setVectores] = useState(initialData);
   const [columns, setColumns] = useState([
     "t",
     "Llegada auto",
@@ -27,7 +29,7 @@ export default function Principal({}) {
     "Costo",
     "rnd",
     "t_atención",
-    "prox_atención",
+    "fin_atención",
     "Estado",
     "Cola",
   ]);
@@ -40,14 +42,19 @@ export default function Principal({}) {
     setSubColumns(newSubColumns);
     setNroCabina(nroCabina + 1);
   };
+
   useEffect(() => {
-    let a = exponentialDistribution(15, 0.73);
-    alert(a);
+    // setLoading(true);
+    generateLlegadaAuto();
   }, []);
+
+  const generateLlegadaAuto = () => {
+    const rnd = truncateValue(Math.random().toString());
+  };
 
   return (
     <ReportTable
-      items={items}
+      items={vectores}
       columns={columns}
       subColumns={subColumns}
       loading={loading}
