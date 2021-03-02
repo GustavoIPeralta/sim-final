@@ -6,11 +6,29 @@ export default function Principal({}) {
     { id: 1, nombre: "gustavo" },
     { id: 2, nombre: "Peralta" },
   ];
-  const columns = ["ID", "Cliente"];
+  const columns = ["Llegada auto", "Tipo auto", "Tiempo atención", "Cabina N"];
+  const subColumns = [
+    "rnd",
+    "tell",
+    "prox_llegada",
+    "rnd",
+    "Tipo",
+    "Costo",
+    "rnd",
+    "t_atención",
+    "prox_atención",
+    "Estado",
+    "Cola",
+  ];
   const [loading, setLoading] = useState(false);
 
   return (
-    <ReportTable items={items} columns={columns} loading={loading}>
+    <ReportTable
+      items={items}
+      columns={columns}
+      subColumns={subColumns}
+      loading={loading}
+    >
       {/* Children */}
     </ReportTable>
   );

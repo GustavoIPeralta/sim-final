@@ -2,7 +2,14 @@ import React from "react";
 import { Card, CardContent, Grid } from "@material-ui/core";
 import ReusableTable from "./ReusableTable";
 
-const ReportTable = ({ items, columns, loading, handleClickRow, children }) => {
+const ReportTable = ({
+  items,
+  columns,
+  subColumns,
+  loading,
+  handleClickRow,
+  children,
+}) => {
   return (
     <Card className="pd-5">
       <CardContent>
@@ -15,6 +22,7 @@ const ReportTable = ({ items, columns, loading, handleClickRow, children }) => {
         <Grid container spacing={2}>
           <Grid item sm={12} className={"text-center"}>
             <ReusableTable
+              subColumns={subColumns}
               columns={columns}
               items={items}
               loading={loading}

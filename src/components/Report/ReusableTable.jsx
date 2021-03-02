@@ -6,6 +6,7 @@ import Spinner from "./Spinner";
 import NoResults from "./NoResults";
 
 const ReusableTable = ({
+  subColumns,
   loading,
   columns,
   items,
@@ -23,7 +24,7 @@ const ReusableTable = ({
           size="small"
           aria-label="a dense table"
         >
-          <HeaderReportTable columns={columns} />
+          <HeaderReportTable columns={columns} subColumns={subColumns} />
           {!loading ? (
             <BodyReportTable items={items} handleClickRow={handleClickRow} />
           ) : null}
