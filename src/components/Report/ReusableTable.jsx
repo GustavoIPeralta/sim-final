@@ -12,6 +12,7 @@ const ReusableTable = ({
   items,
   handleClickRow,
   noResults,
+  nroCabina,
   children,
 }) => {
   return (
@@ -24,7 +25,11 @@ const ReusableTable = ({
           size="small"
           aria-label="a dense table"
         >
-          <HeaderReportTable columns={columns} subColumns={subColumns} />
+          <HeaderReportTable
+            columns={columns}
+            subColumns={subColumns}
+            nroCabina={nroCabina}
+          />
           {!loading ? (
             <BodyReportTable items={items} handleClickRow={handleClickRow} />
           ) : null}

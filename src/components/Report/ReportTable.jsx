@@ -8,6 +8,7 @@ const ReportTable = ({
   subColumns,
   loading,
   handleClickRow,
+  nroCabina,
   children,
 }) => {
   return (
@@ -27,6 +28,7 @@ const ReportTable = ({
               items={items}
               loading={loading}
               handleClickRow={handleClickRow}
+              nroCabina={nroCabina}
             />
           </Grid>
         </Grid>
