@@ -6,7 +6,15 @@ export default function Principal({}) {
     { id: 1, nombre: "gustavo" },
     { id: 2, nombre: "Peralta" },
   ];
-  const columns = ["Llegada auto", "Tipo auto", "Tiempo atención", "Cabina N"];
+  const columns = [
+    "t",
+    "Llegada auto",
+    "Tipo auto",
+    "Tiempo atención",
+    "Cabina N",
+    "Cant cabinas habil.",
+    "Monto recaudado",
+  ];
   const subColumns = [
     "rnd",
     "tell",

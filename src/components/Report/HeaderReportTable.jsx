@@ -2,13 +2,38 @@ import React from "react";
 import { TableHead, TableRow, TableCell } from "@material-ui/core";
 
 const HeaderReportTable = ({ columns, subColumns }) => {
+  const propColSpan = (column) => {
+    if (column === "t") {
+      return 1;
+    } else {
+      if (column !== "Cabina N") {
+        return 3;
+      } else {
+        return 2;
+      }
+    }
+  };
+
+  const propRowSpan = (column) => {
+    if (
+      column === "t" ||
+      column === "Cant cabinas habil." ||
+      column === "Monto recaudado"
+    ) {
+      return 2;
+    } else {
+      return 1;
+    }
+  };
+
   return (
     <TableHead style={{ maxHeight: 15 }}>
       <TableRow>
         {columns.map((column, index) => {
           return (
             <TableCell
-              colSpan={3}
+              colSpan={propColSpan(column)}
+              rowSpan={propRowSpan(column)}
               align="center"
               style={{
                 backgroundColor: "#348AC7",
