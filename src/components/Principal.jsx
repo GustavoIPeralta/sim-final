@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReportTable from "./Report/ReportTable";
 import { Button } from "@material-ui/core";
+import exponentialDistribution from "./Distributions/utils";
 
 export default function Principal({}) {
   const [nroCabina, setNroCabina] = useState(1);
@@ -39,6 +40,10 @@ export default function Principal({}) {
     setSubColumns(newSubColumns);
     setNroCabina(nroCabina + 1);
   };
+  useEffect(() => {
+    let a = exponentialDistribution(15, 0.73);
+    alert(a);
+  }, []);
 
   return (
     <ReportTable
