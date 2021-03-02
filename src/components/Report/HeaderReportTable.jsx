@@ -6,31 +6,23 @@ const HeaderReportTable = ({ columns, subColumns, nroCabina }) => {
     if (column === "t") {
       return 1;
     } else {
-      if (column !== "Cabina N") {
-        return 3;
+      if (column === "Auxiliares") {
+        return 2;
       } else {
-        return nroCabina * 2;
+        if (column !== "Cabina N") {
+          return 3;
+        } else {
+          return nroCabina * 2;
+        }
       }
     }
   };
 
   const propRowSpan = (column) => {
-    if (
-      column === "t" ||
-      column === "Cant cabinas habil." ||
-      column === "Monto recaudado"
-    ) {
+    if (column === "t") {
       return 2;
     } else {
       return 1;
-    }
-  };
-
-  const propWidth = (column) => {
-    if (column === "Cant cabinas habil." || column === "Monto recaudado") {
-      return 20;
-    } else {
-      return "";
     }
   };
 
@@ -47,7 +39,6 @@ const HeaderReportTable = ({ columns, subColumns, nroCabina }) => {
                 backgroundColor: "#348AC7",
                 color: "#fff",
                 fontWeight: "bolder",
-                width: propWidth(column),
               }}
               key={index}
             >

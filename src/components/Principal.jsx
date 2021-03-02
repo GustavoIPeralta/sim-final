@@ -17,8 +17,7 @@ export default function Principal({}) {
     "Tipo auto",
     "Tiempo atención",
     "Cabina N",
-    "Cant cabinas habil.",
-    "Monto recaudado",
+    "Auxiliares",
   ]);
   const [subColumns, setSubColumns] = useState([
     "rnd",
@@ -32,13 +31,19 @@ export default function Principal({}) {
     "fin_atención",
     "Estado",
     "Cola",
+    "Cant cabinas habil.",
+    "Monto recaudado",
   ]);
   const [loading, setLoading] = useState(false);
 
   const addCabina = () => {
-    let newSubColumns = subColumns.slice();
-    newSubColumns.push("Estado", "Cola");
-
+    let newSubColumns = subColumns.slice(0, -2);
+    newSubColumns.push(
+      "Estado",
+      "Cola",
+      "Cant cabinas habil.",
+      "Monto recaudado"
+    );
     setSubColumns(newSubColumns);
     setNroCabina(nroCabina + 1);
   };
