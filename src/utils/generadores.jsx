@@ -28,10 +28,18 @@ export const generateTipoAuto = () => {
 };
 
 export const generateTiempoAtencion = (tipoAuto) => {
-  //   console.log(tipoAuto);
-  //   const rnd = truncateValue(Math.random().toString());
-  //   if(tipoAuto !== 1){
-  //       let rangos =
-  //     const newTime = uniformDistribution(a, b, rnd);
-  //   }
+  let tipoAutoSelect = tiposAutos.filter((item) => item.tipo === tipoAuto);
+  const rnd = truncateValue(Math.random().toString());
+  let newTime = "";
+
+  if (tipoAuto !== 1) {
+    newTime = uniformDistribution(
+      tipoAutoSelect[0].minTiempo,
+      tipoAutoSelect[0].maxTiempo,
+      rnd
+    );
+  } else {
+    newTime = tipoAutoSelect[0].tiempo;
+  }
+  return { rnd, newTime };
 };

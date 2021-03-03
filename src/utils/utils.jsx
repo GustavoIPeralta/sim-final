@@ -21,7 +21,7 @@ export const initialData = [
       {
         id: 0,
         estado: "L",
-        cola: "0",
+        cola: 0,
       },
     ],
     cantCabinasHabil: 0,
