@@ -1,7 +1,7 @@
 export const initialData = [
   {
     id: 0,
-    t: 0,
+    t: 0.0,
     llegada_auto: {
       rnd: "--",
       tell: "--",
