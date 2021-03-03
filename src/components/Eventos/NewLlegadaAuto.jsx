@@ -9,7 +9,6 @@ export const NewLlegadaAuto = (vectores, setVectores, action, setAction) => {
   let result = generateLlegadaAuto();
   let resultTipo = generateTipoAuto();
   let newVectors = vectores.slice();
-
   const vect = {
     id: 0,
     t: 0.0,
@@ -53,13 +52,19 @@ export const NewLlegadaAuto = (vectores, setVectores, action, setAction) => {
   newVectors.push(vect);
 
   newVectors.map((item) => {
-    item.cabinas.map((cab) => {
-      if (cab.estado === "L" && cab.cola === 0) {
-        setAction({ ...action, tipo: "inicio_atencion" });
-      } else if (cab.estado === "Oc" && cab.cola > 0 && cab.cola < 5) {
-        cab.cola = cab.cola + 1;
-      }
-    });
+    if (item.id === vectores.length) {
+      console.log(item.cabinas);
+      item.cabinas.map((cab) => {
+        console.log(cab);
+        if (cab.estado === "L" && cab.cola === 0) {
+          setAction({ ...action, tipo: "inicio_atencion" });
+        } else {
+          if (cab.estado === "Oc" && cab.cola < 5) {
+            cab.cola = cab.cola + 1;
+          }
+        }
+      });
+    }
   });
   setVectores(newVectors);
 };

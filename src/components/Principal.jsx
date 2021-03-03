@@ -81,7 +81,7 @@ export default function Principal({}) {
           NewAtencion(vectores, setVectores, action, setAction);
           break;
         case "transicion":
-          // getNewEvento();
+          getNewEvento();
           break;
         default:
       }
@@ -100,12 +100,12 @@ export default function Principal({}) {
             tiempo: c.llegada_auto.prox_llegada,
           });
         } else {
-          if (c.llegada_auto.prox_llegada >= c.tiempo_atencion.fin_atencion) {
-            setAction({
-              tipo: "inicio_atencion",
-              tiempo: c.tiempo_atencion.fin_atencion,
-            });
-          }
+          // if (c.llegada_auto.prox_llegada >= c.tiempo_atencion.fin_atencion) {
+          //   setAction({
+          //     tipo: "inicio_atencion",
+          //     tiempo: c.tiempo_atencion.fin_atencion,
+          //   });
+          // }
         }
       }
     });
